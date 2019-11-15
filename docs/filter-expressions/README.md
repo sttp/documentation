@@ -1,4 +1,4 @@
-# STTP Filter Expressions
+# Filter Expressions
 
 Filter expressions in STTP are used to select desired signals for subscription or to reduce available meta-data down to a desired subset. Filtering syntax is similar to [Structured Query Language](https://en.wikipedia.org/wiki/SQL) (SQL), but does not implement the full SQL language.
 
