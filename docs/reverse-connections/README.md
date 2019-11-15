@@ -10,7 +10,7 @@ Regardless of how a connection is established, forward or reverse, the functions
 
 <a name="figure1"></a> <center>
 
-![Reverse Connectiona](reverse-connectiona.png)
+![Reverse Connections](reverse-connections.png)
 
 <sup>Figure 1</sup>
 </center>
