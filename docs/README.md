@@ -3,6 +3,6 @@
 # Documentation
 ### Streaming Telemetry Transport Protocol
 
-[Filter Expressions](filter-expressions)
-[Data Tables](data-tables)
-[Reverse Connections](reverse-connections)
+* [Filter Expressions](filter-expressions)
+* [Data Sets](data-sets)
+* [Reverse Connections](reverse-connections)
