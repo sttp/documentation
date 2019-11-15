@@ -1,4 +1,4 @@
-<img align="right" src="img/gemstone-wide-600.png" alt="gemstone logo">
+<img align="right" src="img/sttp.png" alt="STTP">
 
 # Documentation
 ### Streaming Telemetry Transport Protocol
