@@ -1,1 +1,7 @@
 theme: jekyll-theme-cayman
+title: sttp.documentation
+description: Streaming Telemetry Transport Protocol Documentation
+github:
+  repository_name: sttp.documentation
+  owner_url: https://www.gridprotectionalliance.org
+  owner_name: Grid Protection Alliance
