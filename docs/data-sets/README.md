@@ -1,4 +1,4 @@
-# STTP Data Sets
+# Data Sets
 
 A [data set](https://github.com/sttp/cppapi/blob/master/src/lib/data/DataSet.h) represents an in-memory cache of records that is structured similarly to information defined in a database. The data set object consists of a collection of [data table](https://github.com/sttp/cppapi/blob/master/src/lib/data/DataTable.h) objects.
 
