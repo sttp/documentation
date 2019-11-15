@@ -6,6 +6,8 @@ Reverse connections flip the normal responsibilities of a publish/subscribe mess
 
 ##### Figure 1
 
+<a href="figure1"></a>
+
 ![Reverse Connections](reverse-connections.png)
 
 Regardless of how a connection is established, forward or reverse, the functions, roles and responsibilities of the participants will not change, i.e., a publisher shall still be the provider of data and the subscriber shall still be the consumer of data. Additionally, any required protocol negotiations by the parties continues as normal once the connection has been established.
