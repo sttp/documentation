@@ -27,38 +27,38 @@
     <style>
       h1 {
         margin-left: -20px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
 
       h2 {
         margin-left: -18px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
 
       h3 {
         margin-left: -16px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
-      
+
       h4 {
         margin-left: -14px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
-      
+
       h5 {
         margin-left: -12px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
-      
+
       h6 {
         margin-left: -10px;
-        padding-left: 10px; 
+        padding-left: 10px;
       }
-      
+
       h1 .octicon, h2 .octicon, h3 .octicon, h4 .octicon, h5 .octicon, h6 .octicon  {
         visibility: hidden;
       }
-    
+
       h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:hover .octicon, h6:hover .octicon {
         visibility: visible;
       }
@@ -92,7 +92,7 @@
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>, © {{ site.time | date: '%Y' }}.</span>
         {% endif %}
-          <span class="site-footer-credits"><a href="SECURITY">security policy</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="coding-style">coding style</a></span>
+          <span class="site-footer-credits"><a href="{{ site.github.repository_url }}/SECURITY">security policy</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="{{ site.github.repository_url }}/coding-style">coding style</a></span>
       </footer>
     </main>
   </body>
