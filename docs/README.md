@@ -7,3 +7,4 @@
 * [Data Sets](data-sets)
 * [Reverse Connections](reverse-connections)
 * [Mutual Subscriptions](mutual-subscriptions)
+* [High-Throughput with VM](vm-with-high-throughput)
