@@ -172,7 +172,7 @@ Function names are not case sensitive, so `ABS`, `abs` and `Abs` are all equival
 | `ISDATE` | `expression` | Returns flag that determines if `expression` is a `dateTime` or can be parsed as one. |
 | `ISINTEGER` | `expression` | Returns flag that determines if `expression` is an integer value or can be parsed as one. |
 | `ISGUID` | `expression` | Returns flag that determines if `expression` is a Guid value or can be parsed as one. |
-| `ISNULL` | `expression` | Returns flag that determines if `expression` is `null`. |
+| `ISNULL` | `expression`, `defaultValue` | Returns the specified `defaultValue` if `expression` is `null`, otherwise returns the `expression`. |
 | `ISNUMERIC` | `expression` | Returns flag that determines if `expression` is a numeric value or can be parsed as one. |
 | `LASTINDEXOF` | `source, test, [ignoreCase]` | Returns zero-based index of last occurrence of `test` in `source`, or `-1` if not found. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
 | `LEN` | `expression` | Returns length of `expression` interpreted as a string. |
