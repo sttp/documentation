@@ -159,7 +159,7 @@ Function names are not case sensitive, so `ABS`, `abs` and `Abs` are all equival
 | :------: | :-------: | ----------- |
 | `ABS` | `expression` | Returns the absolute value of the specified numeric `expression`. Return type will match numeric `expression` type. |
 | `CEILING` | `expression` | Returns the smallest integer that is greater than, or equal to, the specified numeric `expression`. Return type will match numeric `expression` type. |
-| `COALESCE` | `expression1, ..., expression_n` | Returns the first non-null value in expression list. Expressions are only evaluated up to first non-null value. |
+| `COALESCE` | `expression1, ..., expression_n` | Returns the first non-null value in expression list. Minimum of two arguments required. Expressions are only evaluated up to first non-null value. |
 | `CONVERT` | `expression, type` | Converts `expression` to the specified `type`. `type` is one of `boolean` (or `bool`), `int32`, `uint`, `int64` (or `int`), `decimal`, `single` (or `float`), `double`, `string`, `guid` (or `uuid`), or `datetime` (or `date` or `time`). `type` is not case sensitive. |
 | `CONTAINS` | `source, test, [ignoreCase]` | Returns a boolean flag that determines if `source` string contains `test` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
 | `DATEADD` | `source, value, interval` | Adds `value` for the specified `interval` units to `source` date-time (or string that can be parsed as a date-time) and then returns the resultant date-time value. `interval` is one of `Year`, `Month`, `DayOfYear`, `Day`, `Week`, `WeekDay`, `Hour`, `Minute`, `Second`, or `Millisecond`. `interval` is not case sensitive. |
