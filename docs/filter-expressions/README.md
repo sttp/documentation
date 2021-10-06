@@ -169,7 +169,7 @@ Function names are not case sensitive, so `ABS`, `abs` and `Abs` are all equival
 | `FLOOR` | `expression` | Returns the largest integer value that is smaller than, or equal to, the specified numeric `expression`. Return type will match numeric `expression` type. |
 | `IIF` | `expression, leftValue, rightValue` | Returns `leftValue` if result of specified boolean `expression` is `true`, else returns `rightValue`. Only target expression will be evaluated. |
 | `INDEXOF` | `source, test, [ignoreCase]` | Returns zero-based index of first occurrence of `test` string in `source` string, or `-1` if not found. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `ISDATE` | `expression` | Returns a boolean flag that determines if specified `expression` is a `dateTime` or is a string that can be parsed as one. |
+| `ISDATE` | `expression` | Returns a boolean flag that determines if specified `expression` is a date-time value or is a string that can be parsed as one. |
 | `ISINTEGER` | `expression` | Returns a boolean flag that determines if specified `expression` is an integer value or is a string that can be parsed as one. |
 | `ISGUID` | `expression` | Returns a boolean flag that determines if specified `expression` is a Guid value or is a string that can be parsed as one. |
 | `ISNULL` | `expression`, `defaultValue` | Returns the `defaultValue` if specified `expression` is `null`, otherwise returns the `expression`. Default value is always evaluated and cannot be `null`. |
