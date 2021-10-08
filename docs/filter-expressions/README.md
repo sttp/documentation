@@ -83,7 +83,7 @@ Any operators that consist of letters, e.g., `OR`, are not case sensitive, so `O
 | Type | Symbol |
 | :--: | :----: |
 | And | `AND` or `&&` |
-| Or | `OR` or `||` |
+| Or | `OR` or `||` | <!-- The `||` does not render properly in Github markdown, but works fine on jekyll render - so leave this -->
 
 #### Bitwise Operators
 
@@ -92,7 +92,7 @@ Any operators that consist of letters, e.g., `OR`, are not case sensitive, so `O
 | Bit Shift Left | `<<` |
 | Bit Shift Right | `>>` |
 | Bitwise And | `&` |
-| Bitwise Or | `|` |
+| Bitwise Or | `|` | <!-- The `|` does not render properly in Github markdown, but works fine on jekyll render - so leave this -->
 | Exclusive Or | `XOR` or `^` |
 
 #### Math Operators
