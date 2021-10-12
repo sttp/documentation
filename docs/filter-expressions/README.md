@@ -10,7 +10,7 @@ STTP data publishers need to define a data set consisting of a collection of dat
 
 ## Filtering Syntax
 ```sql
-FILTER <TableName> [TOP n] WHERE <Expression> [ORDER BY <SortField> [ASC|DESC]]
+FILTER [TOP n] <TableName> WHERE <Expression> [ORDER BY <SortField> [ASC|DESC]]
 ```
 
 Filter expressions in STTP are parsed using [ANTLR](https://www.antlr.org/). For complete syntax description, see full ANTLR grammar: **[FilterExpressionSyntax.g4](https://github.com/sttp/filter-expressions/blob/main/FilterExpressionSyntax.g4)**
