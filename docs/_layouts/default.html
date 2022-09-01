@@ -90,7 +90,7 @@
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>, © {{ site.time | date: '%Y' }}.</span>
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}" style="white-space: nowrap">{ site.github.owner_name }}</a>, © {{ site.time | date: '%Y' }}.</span>
         {% endif %}
           <span class="site-footer-credits"><a href="{{ site.baseurl }}/SECURITY">security policy</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="{{ site.baseurl }}/coding-style">coding style</a></span>
       </footer>
