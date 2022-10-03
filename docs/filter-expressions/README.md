@@ -19,10 +19,10 @@ Filter expressions in STTP are parsed using [ANTLR](https://www.antlr.org/). For
 
 | Keyword | Example | Description | Required?|
 |---------|---------|-------------|:----------:|
-| FILTER | See [examples](#examples) below | Keyword that signifies a _filter_ expression follows* | Yes|
-| TOP `n` | TOP 100 | Selects only the first `n` number of items | No|
-| WHERE &lt;Expression&gt; | WHERE SignalType='FREQ' | Criteria based expression, in SQL syntax, used to filter rows | Yes |
-| ORDER BY &lt;ColumnName&gt; | ORDER BY SignalType | Expression specifying column names and sort directions | No |
+| `FILTER` | See [examples](#examples) below | Keyword that signifies a _filter_ expression follows* | Yes|
+| `TOP n` | `TOP 100` | Selects only the first `n` number of items | No|
+| `WHERE <Expression>` | `WHERE SignalType='FREQ'` | Criteria based expression, in SQL syntax, used to filter rows | Yes |
+| `ORDER BY <ColumnName>` | `ORDER BY SignalType` | Expression specifying column names and sort directions | No |
 
 > :information_source: The keyword _FILTER_ is used instead of the standard SQL _SELECT_ keyword to reinforce the notion that the expression that follows is special purposed and not standard SQL.
 
@@ -105,6 +105,15 @@ Any operators that consist of letters, e.g., `OR`, are not case sensitive, so `O
 | Subtract | `-` |
 | Modulus | `%` |
 
+#### Other Operators
+
+| Symbol | Syntax |
+| :----: | :----: |
+| `LIKE` | `<ColumnName> LIKE 'pattern'`
+|  `IN`  | `<ColumnName> IN (expression1, ..., expression_n)` |
+
+> The _pattern_ for the `LIKE` operator uses wildcards identified as a percent sign (`%`), or an asterisk (`*`), allowed at the beginning or the end of the pattern, which represents zero, one, or multiple characters in the source column value. Wildcards in the middle of the string are not supported.
+
 ### Case Sensitive String Comparisons
 
 Unless otherwise specified, comparison of string values in filter expressions is not case sensitive. To specify a case sensitive comparison, use one of the following expression options:
@@ -112,7 +121,7 @@ Unless otherwise specified, comparison of string values in filter expressions is
 #### Case Sensitive `LIKE` Expression
 
 ```
-FILTER <TableName> WHERE <ColumnName> [NOT] LIKE [===|BINARY] 'expression'
+FILTER <TableName> WHERE <ColumnName> [NOT] LIKE [===|BINARY] 'pattern'
 ```
 _Example:_
 ```
@@ -157,47 +166,47 @@ Function names are not case sensitive, so `ABS`, `abs` and `Abs` are all equival
 
 | Function | Arguments | Description |
 | :------: | :-------: | ----------- |
-| `ABS` | `expression` | Returns the absolute value of the specified numeric `expression`. Return type will match numeric `expression` type. |
-| `CEILING` | `expression` | Returns the smallest integer that is greater than, or equal to, the specified numeric `expression`. Return type will match numeric `expression` type. |
-| `COALESCE` | `expression1, ..., expression_n` | Returns the first non-null value in expression list. Minimum of two arguments required. Expressions are only evaluated up to first non-null value. |
-| `CONVERT` | `expression, type` | Converts `expression` to the specified `type` string. `type` is one of `boolean` (or `bool`), `int` (or any `int*`, e.g., `int64`), `uint` (or any `uint*`, e.g., `uint64`), `decimal`, `single` (or `float`), `double` (or any `float*`, e.g., `float64`), `string`, `guid` (or `uuid`), or `datetime` (or `date` or `time`). `type` is not case sensitive. |
-| `CONTAINS` | `source, test, [ignoreCase]` | Returns a boolean flag that determines if `source` string contains `test` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
-| `DATEADD` | `source, value, interval` | Adds `value` for the specified `interval` units to `source` date-time (or string that can be parsed as a date-time) and then returns the resultant date-time value. `interval` is one of `Year`, `Month`, `DayOfYear`, `Day`, `Week`, `WeekDay`, `Hour`, `Minute`, `Second`, or `Millisecond`. `interval` is not case sensitive. |
-| `DATEDIFF` | `left, right, interval` | Returns the integer difference between `left` and `right` date-time values (or strings that can be parsed as date-times) for the specified `interval` units. `interval` is one of `Year`, `Month`, `DayOfYear`, `Day`, `Week`, `WeekDay`, `Hour`, `Minute`, `Second`, or `Millisecond`. `interval` is not case sensitive. Return type is a 32-bit integer. |
-| `DATEPART` | `source, interval` | Returns an integer representing the specified `interval` units of `source` date-time (or string that can be parsed as a date-time). `interval` is one of `Year`, `Month`, `DayOfYear`, `Day`, `Week`, `WeekDay`, `Hour`, `Minute`, `Second`, or `Millisecond`. `interval` is not case sensitive. Return type is a 32-bit integer. |
-| `ENDSWITHS` | `source, test, [ignoreCase]` | Returns a boolean flag that determines if `source` string ends with `test` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
-| `FLOOR` | `expression` | Returns the largest integer value that is smaller than, or equal to, the specified numeric `expression`. Return type will match numeric `expression` type. |
-| `IIF` | `expression, leftValue, rightValue` | Returns `leftValue` if result of specified boolean `expression` is `true`, else returns `rightValue`. Only target expression will be evaluated. |
-| `INDEXOF` | `source, test, [ignoreCase]` | Returns zero-based index of first occurrence of `test` string in `source` string, or `-1` if not found. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `ISDATE` | `expression` | Returns a boolean flag that determines if specified `expression` is a date-time value or is a string that can be parsed as one. |
-| `ISINTEGER` | `expression` | Returns a boolean flag that determines if specified `expression` is an integer value or is a string that can be parsed as one. |
-| `ISGUID` | `expression` | Returns a boolean flag that determines if specified `expression` is a Guid value or is a string that can be parsed as one. |
-| `ISNULL` | `expression`, `defaultValue` | Returns the `defaultValue` if specified `expression` is `null`, otherwise returns the `expression`. Default value is always evaluated and cannot be `null`. |
-| `ISNUMERIC` | `expression` | Returns a boolean flag that determines if specified `expression` is a numeric value or is a string that can be parsed as one. |
-| `LASTINDEXOF` | `source, test, [ignoreCase]` | Returns zero-based index of last occurrence of `test` string in `source` string, or `-1` if not found. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `LEN` | `expression` | Returns length of specified string `expression`. |
-| `LOWER` | `expression` | Returns lower-case representation of specified string `expression`. |
-| `MAXOF` | `expression1, ..., expression_n` | Returns value in expression list with maximum value. Arguments will be converted to comparable values where possible. Minimum of two arguments required. First value will be return if no maximum can be determined. Return type will match `expression` type of maximum value. |
-| `MINOF` | `expression1, ..., expression_n` | Returns value in expression list with minimum value. Arguments will be converted to comparable values where possible. Minimum of two arguments required. First value will be return if no minimum can be determined. Return type will match `expression` type of minimum value.|
-| `NOW` | | Returns a date-time value representing the current local system time. |
-| `NTHINDEXOF` | `source, test, index, [ignoreCase]` | Returns zero-based index of the N<sup>th</sup>, represented by integer `index` value, occurrence of `test` string in `source` string, or `-1` if `test` is not found or `index` is out of range. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `POWER` | `expression, exponent` | Returns the value of specified numeric `expression` raised to the power of specified numeric `exponent`. Return type will match numeric `expression` type. |
-| `REGEXMATCH` | `regex, test` | Returns a boolean boolean flag that determines if `test` string has at least one match for specified `regex` string-based regular expression. |
-| `REGEXVAL` | `regex, test` | Returns first sub-string from `test` string that is matched by specified `regex` string-based regular expression. No match will return empty string. |
-| `REPLACE` | `source, test, replace, [ignoreCase]` | Returns a string where all instances of `test` string found in `source` string are replaced with specified `replace` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive.  |
-| `REVERSE` | `expression` | Returns a string where all characters in specified string `expression` are reversed. |
-| `ROUND` | `expression` | Returns the nearest integer value to the specified numeric `expression`. Return type will match numeric `expression` type. |
-| `SPLIT` | `source, delimiter, index, [ignoreCase]` | Returns zero-based N<sup>th</sup>, represented by integer `index`, sub-string from `source` string split by `delimiter` string, or an empty string if `delimiter` is not found or `index` is out of range. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
-| `SQRT` | `expression` | Returns the square root of the specified numeric `expression`.  Return type is always a 64-bit floating-point number. |
-| `STARTSWITH` | `source, test, [ignoreCase]` | Returns a boolean flag that determines if `source` string starts with `test` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. |
-| `STRCOUNT` | `source, test, [ignoreCase]` | Returns count of occurrences of `test` string in `source` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `STRCMP` | `left, right, [ignoreCase]` | Returns `-1` if `left` string is less-than `right` string, `1` if `left` string is greater-than `right` string, or `0` if `left` string equals `right` string. `ignoreCase` is a optional boolean flag, defaults to `false`, to determine if string comparison is case sensitive. Return type is a 32-bit integer. |
-| `SUBSTR` | `source, index, [length]` | Returns portion of `source` string, i.e., a sub-string, starting at `index`. If `length` is specified, this will be the maximum number of characters returned; otherwise, remaining characters in string will be returned. `index` values outside bounds of `source` will return an empty string. `length` values that are less than or equal to zero will return an empty string. `index` and `length` values outside bounds of `source` will return string starting from `index`.  |
-| `TRIM` | `expression` | Returns a string with white-space removed from the beginning and end of specfied string `expression`. |
-| `TRIMLEFT` | `expression` | Returns a string with white-space removed from the beginning of specified string `expression`. |
-| `TRIMRIGHT` | `expression` | Returns a string with white-space removed from the end of specfied string `expression`. |
-| `UPPER` | `expression` | Returns upper-case representation of specfied string `expression`. |
-| `UTCNOW` | | Returns a date-time value representing the current UTC system time. |
+| `ABS` | `expression` | Returns the absolute value of the specified numeric `expression`. |
+| `CEILING` | `expression` | Returns the smallest _integer_ that is greater than, or equal to, the specified numeric `expression`. |
+| `COALESCE` | `expression1`, ..., `expression_n` | Returns the first _non-null_ value in `expression` list. |
+| `CONVERT` | `expression`, `type` | Returns `expression` converted to the specified `type`. `type` is one of _boolean_ (or _bool_), _int32_, _uint_, _int64_ (or _int_), _decimal_, _single_ (or _float_), _double_, _string_, _UUID_ (or _GUID_),or _datetime_. `type` is not case sensitive. |
+| `CONTAINS` | `source`, `test`, [`ignorecase`] | Returns _boolean_ flag that determines if `source` _string_ contains `test` _string_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `DATEADD` | `source`, `value`, `interval` | Returns _dateTime_ of _integer_ `value` at specified `interval` added to `source` _dateTime_ value. `interval` is one of _Year_, _Month_, _DayOfYear_, _Day_, _Week_, _WeekDay_, _Hour_, _Minute_, _Second_, or _Millisecond_. `interval` is not case sensitive. |
+| `DATEDIFF` | `left`, `right`, `interval` | Returns the _integer_ difference between `left` and `right` _dateTime_ value at specified `interval`. `interval` is one of _Year_, _Month_, _DayOfYear_, _Day_, _Week_, _WeekDay_, _Hour_, _Minute_, _Second_, or _Millisecond_. `interval` is not case sensitive. |
+| `DATEPART` | `source`, `interval` | Returns specified _integer_ `interval` of `source` _dateTime_ value. `interval` is one of _Year_, _Month_, _DayOfYear_, _Day_, _Week_, _WeekDay_, _Hour_, _Minute_, _Second_, or _Millisecond_. `interval` is not case sensitive. |
+| `ENDSWITHS` | `source`, `test`, [`ignorecase`] | Returns _boolean_ flag that determines if `source` _string_ ends with `test` _string_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `FLOOR` | `expression` | Returns the largest _integer_ value that is smaller than, or equal to, the specified numeric `expression`. |
+| `IIF` | `expression`, `leftValue`, `rightValue` | Returns `leftValue` if result of `expression` is _true_, else returns `rightValue`. |
+| `INDEXOF` | `source`, `test`, [`ignorecase`] | Returns zero-based _integer_ index of first occurrence of `test` _string_ in `source` _string_, or _-1_ if not found. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `ISDATE` | `expression` | Returns _boolean_ flag that determines if `expression` is a _dateTime_ or can be parsed as one. |
+| `ISINTEGER` | `expression` | Returns _boolean_ flag that determines if `expression` is an _integer_ value or can be parsed as one. |
+| `ISUUID` | `expression` | Returns _boolean_ flag that determines if `expression` is a _UUID_ value or can be parsed as one. |
+| `ISNULL` | `expression` | Returns _boolean_ flag that determines if `expression` is _null_. |
+| `ISNUMERIC` | `expression` | Returns _boolean_ flag that determines if `expression` is a numeric value or can be parsed as one. |
+| `LASTINDEXOF` | `source`, `test`, [`ignorecase`] | Returns zero-based _integer_ index of last occurrence of `test` _string_ in `source` _string_, or _-1_ if not found. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `LEN` | `expression` | Returns _integer_ length of `expression` interpreted as a _string_. |
+| `LOWER` | `expression` | Returns lower-case representation of `expression` interpreted as a _string_. |
+| `MAXOF` | `expression1`, ..., `expression_n` | Returns value in `expression` list with maximum value. |
+| `MINOF` | `expression1`, ..., `expression_n` | Returns value in `expression` list with minimum value. |
+| `NOW` | | Returns _dateTime_ value representing the current local system time. |
+| `NTHINDEXOF` | `source`, `test`, `index`, [`ignorecase`] | Returns zero-based _integer_ index of the Nth, represented by _integer_ `index` value, occurrence of `test` _string_ in `source` _string_, or _-1_ if not found. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `POWER` | `expression`, `exponent` | Returns the value of specified numeric `expression` raised to the power of specified numeric `exponent`. |
+| `REGEXMATCH` | `regex`, `test` | Returns _boolean_ flag that determines if `test`, interpreted as a _string_, is a match for specified `regex` string-based regular expression. |
+| `REGEXVAL` | `regex`, `test` | Returns _string_ value from `test`, interpreted as a _string_, that is matched by specified `regex` string-based regular expression. |
+| `REPLACE` | `source`, `test`, `replace`, [`ignorecase`] | Returns _string_ where all instances of `test` found in `source` are replaced with `replace` value - all parameters interpreted as _strings_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `REVERSE` | `expression` | Returns _string_ where all characters in `expression`, interpreted as a _string_, are reversed. |
+| `ROUND` | `expression` | Returns the nearest _integer_ value to the specified numeric `expression`. |
+| `SPLIT` | `source`, `delimiter`, `index`, [`ignorecase`] | Returns zero-based Nth, represented by `index`, _string_ value in `source` _string_ split by `delimiter` _string_, or _null_ if out of range. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `SQRT` | `expression` | Returns the square root of the specified numeric `expression`. |
+| `STARTSWITH` | `source`, `test`, [`ignorecase`] | Returns _boolean_ flag that determines if `source` _string_ starts with `test` _string_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `STRCOUNT` | `source`, `test`, [`ignorecase`] | Returns _integer_ count of occurrences of `test` _string_ in `source` _string_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `STRCMP` | `left`, `right`, [`ignorecase`] | Returns _integer_ _-1_ if `left` _string_ is less-than `right` _string_, _1_ if `left` _string_ is greater-than `right` _string_, or _0_ if `left` _string_ equals `right` _string_. `ignorecase` is an optional _boolean_ flag, defaults to _false_, to determine if string comparison is case sensitive. |
+| `SUBSTR` | `source`, `index`, [`length`] | Returns _string_ from portion of `source`, interpreted as a _string_, starting at _integer_ `index`. If `length` is specified, this will be the maximum number of characters returned; otherwise, remaining characters in `source` _string_ will be returned. |
+| `TRIM` | `expression` | Returns _string_ with white-space removed from the beginning and end of `expression` interpreted as a _string_. |
+| `TRIMLEFT` | `expression` | Returns _string_ with white-space removed from the beginning of `expression` interpreted as a _string_. |
+| `TRIMRIGHT` | `expression` | Returns _string_ with white-space removed the end of `expression` interpreted as a _string_. |
+| `UPPER` | `expression` | Returns upper-case representation of `expression` interpreted as a _string_. |
+| `UTCNOW` | | Returns _dateTime_ value representing the current UTC system time. |
 
 ## Signal Selection Meta-data Table Definitions
 
