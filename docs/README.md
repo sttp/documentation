@@ -16,5 +16,5 @@
 <br clear="right"/>
 
 <p align="center">
-    <img src="img/api-promo.png" alt="STTP Reference Implementations">
+    <a href="https://github.com/sttp"><img src="img/api-promo.png" alt="STTP Reference Implementations"></a>
 </p>

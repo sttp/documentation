@@ -1,6 +1,6 @@
 <!-- This markdown page is separate from GitHub Pages home page -->
 <p align="center">
-    <img src="docs/img/logo-small.png" alt="STTP Features">
+    <a href="https://github.com/sttp"><img src="docs/img/logo-small.png" alt="STTP / IEEE 2664"></a>
 </p>
 
 <img align="left" src="docs/img/sttp-features.png" alt="STTP Features">
@@ -14,7 +14,7 @@ STTP is currently undergoing IEEE standardization [(P2664)](https://standards.ie
 
 <br/>
 <br/>
-<img align="right" src="docs/img/sttp-benefits.png" alt="STTP Features">
+<a href="https://github.com/sttp"><img align="right" src="docs/img/sttp-benefits.png" alt="STTP Benefits" /></a>
 
 <br clear="left"/>
 <br clear="right"/>
@@ -35,5 +35,5 @@ STTP is currently undergoing IEEE standardization [(P2664)](https://standards.ie
 <br clear="right"/>
 
 <p align="center">
-    <img src="docs/img/api-promo.png" alt="STTP Reference Implementations">
+    <a href="https://github.com/sttp"><img src="docs/img/api-promo.png" alt="STTP Reference Implementations"></a>
 </p>
