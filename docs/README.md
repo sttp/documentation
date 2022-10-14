@@ -1,8 +1,8 @@
 <!-- Home page header content comes from _includes\homepage_header.html -->
 
-<a href="https://github.com/sttp"><img align="right" src="img/sttp.png" alt="STTP"></a>
-
 # Documentation
+
+<a href="https://github.com/sttp"><img align="right" src="img/sttp.png" alt="STTP"></a>
 
 ## Topics
 
@@ -14,7 +14,6 @@
 
 
 <br clear="right"/>
-<br/>
 
 <p align="center">
     <img src="img/api-promo.png" alt="STTP Reference Implementations">

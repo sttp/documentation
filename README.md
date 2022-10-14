@@ -8,21 +8,20 @@
 The Streaming Telemetry Transport Protocol (STTP) is optimized for the demands of transporting high volume continuous streaming data and related metadata.
 The protocol allows for the transmission of any information that can be represented longitudinally, e.g., time-series data.
 
-STTP is currently undergoing IEEE standardization (P2664), see: [https://standards.ieee.org/ieee/2664/7397/](https://standards.ieee.org/ieee/2664/7397/)
+STTP is currently undergoing IEEE standardization [(P2664)](https://standards.ieee.org/ieee/2664/7397/).
 
 <a href="#documentation">Documentation</a>
 
 <br/>
 <br/>
-<br/>
 <img align="right" src="docs/img/sttp-benefits.png" alt="STTP Features">
 
 <br clear="left"/>
-<br/>
-
-<a href="https://github.com/sttp"><img align="right" src="docs/img/sttp.png" alt="STTP"></a>
+<br clear="right"/>
 
 # Documentation
+
+<a href="https://github.com/sttp"><img align="right" src="docs/img/sttp.png" alt="STTP"></a>
 
 ## Topics
 
@@ -34,7 +33,6 @@ STTP is currently undergoing IEEE standardization (P2664), see: [https://standar
 
 
 <br clear="right"/>
-<br/>
 
 <p align="center">
     <img src="docs/img/api-promo.png" alt="STTP Reference Implementations">
