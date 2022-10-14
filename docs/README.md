@@ -2,7 +2,6 @@
 <p align="center">
     <img src="img/logo-small.png" alt="STTP Features">
 </p>
-<br/>
 
 <img align="left" src="img/sttp-features.png" alt="STTP Features">
 
@@ -11,6 +10,7 @@ The protocol allows for the transmission of any information that can be represen
 
 STTP is currently undergoing IEEE standardization (P2664), see: [https://standards.ieee.org/ieee/2664/7397/](https://standards.ieee.org/ieee/2664/7397/)
 
+<a href="#documentation">See Documentation</a>
 
 <br/>
 <br/>
