@@ -1,4 +1,4 @@
-
+<!-- This markdown page is separate from GitHub Pages home page -->
 <p align="center">
     <img src="docs/img/logo-small.png" alt="STTP Features">
 </p>
@@ -10,7 +10,7 @@ The protocol allows for the transmission of any information that can be represen
 
 STTP is currently undergoing IEEE standardization (P2664), see: [https://standards.ieee.org/ieee/2664/7397/](https://standards.ieee.org/ieee/2664/7397/)
 
-<a href="#documentation">See Documentation</a>
+<a href="#documentation">Documentation</a>
 
 <br/>
 <br/>
