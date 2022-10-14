@@ -1,9 +1,9 @@
 
 <p align="center">
-    <img src="img/logo-small.png" alt="STTP Features">
+    <img src="docs/img/logo-small.png" alt="STTP Features">
 </p>
 
-<img align="left" src="img/sttp-features.png" alt="STTP Features">
+<img align="left" src="docs/img/sttp-features.png" alt="STTP Features">
 
 The Streaming Telemetry Transport Protocol (STTP) is optimized for the demands of transporting high volume continuous streaming data and related metadata.
 The protocol allows for the transmission of any information that can be represented longitudinally, e.g., time-series data.
@@ -15,10 +15,12 @@ STTP is currently undergoing IEEE standardization (P2664), see: [https://standar
 <br/>
 <br/>
 <br/>
-<img align="right" src="img/sttp-benefits.png" alt="STTP Features">
+<img align="right" src="docs/img/sttp-benefits.png" alt="STTP Features">
 
 <br clear="left"/>
 <br/>
+
+<a href="https://github.com/sttp"><img align="right" src="docs/img/sttp.png" alt="STTP"></a>
 
 # Documentation
 
@@ -31,10 +33,9 @@ STTP is currently undergoing IEEE standardization (P2664), see: [https://standar
 * [High-Throughput with VM](vm-with-high-throughput)
 
 
-<a href="https://github.com/sttp"><img align="right" src="img/sttp.png" alt="STTP"></a>
 <br clear="right"/>
 <br/>
 
 <p align="center">
-    <img src="img/api-promo.png" alt="STTP Reference Implementations">
+    <img src="docs/img/api-promo.png" alt="STTP Reference Implementations">
 </p>
